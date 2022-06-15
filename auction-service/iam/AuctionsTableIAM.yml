@@ -2,6 +2,8 @@ AuctionsTableIAM:
   Effect: Allow
   Action:
     - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:GetItem
   Resource:
 #    - arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/AuctionsTable-${self:provider.stage}
     - ${self:custom.AuctionsTable.arn}
