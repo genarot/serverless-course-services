@@ -13,7 +13,11 @@ async function createAuction(event, _context) {
     const auction = {
         id: uuid(),
         title,
-        status: 'OPEN', createdAt: now.toISOString()
+        status: 'OPEN',
+        createdAt: now.toISOString(),
+        highestBid: {
+            amount: 0
+        }
     };
 
     try {
