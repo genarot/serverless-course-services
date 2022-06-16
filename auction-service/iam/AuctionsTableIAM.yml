@@ -5,6 +5,8 @@ AuctionsTableIAM:
     - dynamodb:Scan
     - dynamodb:GetItem
     - dynamodb:UpdateItem
+    - dynamodb:Query
   Resource:
-#    - arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/AuctionsTable-${self:provider.stage}
+    #    - arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/AuctionsTable-${self:provider.stage}
     - ${self:custom.AuctionsTable.arn}
+    - !Join [ '/', [ '${self:custom.AuctionsTable.arn}','index', 'statusAndEndDate' ] ]
